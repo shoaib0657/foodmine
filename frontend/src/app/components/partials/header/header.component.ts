@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/models/user';
+import { User } from 'src/app/shared/models/User';
 
 @Component({
   selector: 'app-header',

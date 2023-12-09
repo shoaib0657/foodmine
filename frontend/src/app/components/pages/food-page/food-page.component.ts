@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
-import { Food } from 'src/app/shared/models/food';
+import { Food } from 'src/app/shared/models/Food';
 
 @Component({
   selector: 'app-food-page',

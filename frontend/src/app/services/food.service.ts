@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Food } from '../shared/models/food';
+import { Food } from '../shared/models/Food';
 import { sample_foods, sample_tags } from 'src/data';
-import { Tag } from '../shared/models/tag';
+import { Tag } from '../shared/models/Tag';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/models/constants/urls';
+import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
