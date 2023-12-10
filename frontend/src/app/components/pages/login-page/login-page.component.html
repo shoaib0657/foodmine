@@ -9,6 +9,12 @@
             <text-input [control]="loginForm.controls.password" type="password" label="Password" [showErrorsWhen]="isSubmitted"></text-input>
 
             <default-button text="Login"></default-button>
+
+            <div class="register">
+                New user? &nbsp;
+                <a routerLink="/register" [queryParams]="{returnUrl: returnUrl}">Register Here</a>
+            </div>
+
         </form>
     </div>
 </div>

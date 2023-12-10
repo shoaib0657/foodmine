@@ -68,6 +68,10 @@ export class CartService {
     return this.cartSubject.asObservable();
   }
 
+  getCart(): Cart {
+    return this.cartSubject.value;
+  }
+
   // Update local storage and notify subscribers with the latest cart data
   private setCartToLocalStorage(): void {
     // Update total price and total count based on the items in the cart
