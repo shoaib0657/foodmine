@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd src && nodemon server.ts",
+    "build": "npm install && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
