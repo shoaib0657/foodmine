@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "cd backend && npm run build",
-    "build": "cd frontend && npm run build --prod"
+    "build": "cd frontend && npm run build"
   },
   "keywords": [],
   "author": "",
