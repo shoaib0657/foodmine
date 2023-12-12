@@ -27,9 +27,9 @@ router.post(
     asyncHandler(async (req, res) => {
         // const body = req.body;
         const { email, password } = req.body;
-        const user = await UserModel.findOne({ email, password });
+        const user = await UserModel.findOne({ email });
 
-        if (user) {
+        if (user && (await bcrypt.compare(password, user.password))) {
             res.send(generateTokenResponse(user));
         } else {
             res.status(HTTP_BAD_REQUEST).send("User name or password is not valid!");
@@ -45,7 +45,9 @@ router.post(
         if (user) {
             res.status(HTTP_BAD_REQUEST).send("User already exists!, please login!");
         } else {
+
             const encryptedPassword = await bcrypt.hash(password, 10);
+
             const newUser: User = {
                 id: "",
                 name: name,
