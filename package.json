@@ -1,7 +1,6 @@
 {
   "name": "foodmine",
   "version": "1.0.0",
-  "node": ">=20 <21",
   "description": "Food Shopping App",
   "main": "index.js",
   "scripts": {
