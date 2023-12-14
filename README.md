@@ -34,7 +34,9 @@ Users can pay for their order using PayPal, which is integrated with the applica
 
 - The application is designed to be responsive, ensuring a seamless experience across various devices.
 
-## Getting Started
+## Installation
+
+To run the application locally, follow these steps:
 
 1. **Clone the Repository:**
    ```
