@@ -27,19 +27,15 @@ This Angular application is a comprehensive food ordering platform that allows u
 - **Checkout Page:** Users can finalize their order, provide delivery details, and choose a payment method.
 - **Map Integration:** The checkout page features an interactive map to input delivery locations accurately.
 
-### 5. Order Tracking
-
-- **Order Track Page:** Users can track the status of their orders in real-time.
-
-### 6. Payment Integration
+### 5. Payment Integration
 
 - **Payment Page:** Users can securely complete transactions using the integrated PayPal payment gateway.
 
-### 7. Responsive Design
+### 6. Responsive Design
 
 - The application is designed to be responsive, ensuring a seamless experience across various devices.
 
-### 8. Loading Indicators
+### 7. Loading Indicators
 
 - Loading indicators are implemented throughout the application to provide users with feedback during data retrieval processes.
 
