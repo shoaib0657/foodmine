@@ -2,14 +2,13 @@
 
 ## Overview
 
-This Angular application is a comprehensive food ordering platform that allows users to explore a variety of foods, search for specific items, manage their cart, place orders, and track their order status. The application seamlessly integrates with a backend server, enabling features like user authentication, registration, and order management.
+This project is a full-stack web application that allows users to order food online from a variety of cuisines and restaurants. The application is built using Angular for the frontend and Node.js for the backend, and uses MongoDB as the database. The application also integrates with PayPal for payment processing.
 
 ## Features
 
 ### 1. User Authentication and Registration
 
-- **Login Page:** Users can log in using their credentials, ensuring a secure and personalized experience.
-- **Registration Page:** New users can easily register by providing the required information.
+Users can create an account and log in securely using their email and password. The application uses JSON Web Tokens (JWT) for authentication and bcrypt for password hashing.
 
 ### 2. Food Exploration
 
@@ -29,15 +28,11 @@ This Angular application is a comprehensive food ordering platform that allows u
 
 ### 5. Payment Integration
 
-- **Payment Page:** Users can securely complete transactions using the integrated PayPal payment gateway.
+Users can pay for their order using PayPal, which is integrated with the application using the PayPal SDK. Users can also choose to save their payment information for future orders, or use a different card or account.
 
 ### 6. Responsive Design
 
 - The application is designed to be responsive, ensuring a seamless experience across various devices.
-
-### 7. Loading Indicators
-
-- Loading indicators are implemented throughout the application to provide users with feedback during data retrieval processes.
 
 ## Getting Started
 
