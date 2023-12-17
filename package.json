@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "cd backend && npm run build",
-    "build": "cd frontend && npm run build",
+    "dev": "cd frontend && npm start & cd backend && npm start",
     "start": "cd backend/built && node server.js",
-    "dev": "cd frontend && npm start & cd backend && npm start"
+    "prebuild": "cd backend && npm run build",
+    "build": "cd frontend && npm run build"
   },
   "keywords": [],
   "author": "",

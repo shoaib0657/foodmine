@@ -19,13 +19,13 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
-    "typescipt": "^1.0.0"
-  },
-  "devDependencies": {
+    "typescipt": "^1.0.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.5",
+    "@types/jsonwebtoken": "^9.0.5"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2"
   }

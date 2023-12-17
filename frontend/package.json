@@ -4,38 +4,39 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm install --force && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build": "npm install --force && ng build --configuration production"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^17.0.6",
     "@angular/animations": "^17.0.6",
+    "@angular/cli": "^17.0.6",
     "@angular/common": "^17.0.6",
     "@angular/compiler": "^17.0.6",
+    "@angular/compiler-cli": "^17.0.6",
     "@angular/core": "^17.0.6",
     "@angular/forms": "^17.0.6",
     "@angular/platform-browser": "^17.0.6",
     "@angular/platform-browser-dynamic": "^17.0.6",
     "@angular/router": "^17.0.6",
+    "@types/jasmine": "~5.1.4",
+    "@types/leaflet": "^1.9.8",
+    "@types/node": "^20.10.4",
     "leaflet": "^1.9.4",
     "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.6",
-    "@angular/cli": "^17.0.6",
-    "@angular/compiler-cli": "^17.0.6",
-    "@types/jasmine": "~5.1.4",
-    "@types/leaflet": "^1.9.8",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "karma-jasmine-html-reporter": "~2.1.0"
   }
 }
