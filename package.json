@@ -1,8 +1,9 @@
 {
   "name": "foodmine",
   "version": "1.0.0",
-  "description": "Food Shopping App",
-  "main": "index.js",
+  "engines": {
+    "node": ">=20 <21"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cd frontend && npm start & cd backend && npm start",
