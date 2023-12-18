@@ -4,6 +4,7 @@ import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import { OrderModel } from "../models/order.model";
 import { OrderStatus } from "../constants/order_status";
 import auth from "../middlewares/auth.mid"
+import { UserModel } from "../models/user.model";
 
 const router = Router();
 router.use(auth);
@@ -65,6 +66,27 @@ router.get('/track/:id', asyncHandler(
         const order = await OrderModel.findById(req.params.id);
         if(order) res.send(order);
         else res.status(HTTP_BAD_REQUEST).send();
+    }
+))
+
+router.get("/allstatus", asyncHandler(
+    async (req, res) => {
+        const allStatus = Object.values(OrderStatus);
+        res.send(allStatus);
+    }
+))
+
+router.get("/:status?", asyncHandler(
+    async (req: any, res) => {
+        const status = req.params.status;
+        const user = await UserModel.findById(req.user.id)
+        const filter: any = {};
+
+        if(!user!.isAdmin) filter.user = user?._id;
+        if(status) filter.status = status;
+
+        const orders = await OrderModel.find(filter).sort('-createdAt');
+        res.send(orders);
     }
 ))
 

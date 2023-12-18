@@ -1,14 +1,14 @@
 export const sample_foods: any[] = [
   {
     id:'1',
-    name: 'Pizza Pepperoni',
+    name: 'Chicken Biryani',
     cookTime: '10-20',
     price: 10,
-    favorite: false,
-    origins: ['italy'],
+    favorite: true,
+    origins: ['india'],
     stars: 4.5,
-    imageUrl: 'assets/food-1.jpg',
-    tags: ['FastFood', 'Pizza', 'Lunch'],
+    imageUrl: 'assets/biryani.jpg',
+    tags: ['Lunch'],
   },
   {
     id:'2',

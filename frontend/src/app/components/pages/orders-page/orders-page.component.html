@@ -1,0 +1,43 @@
+<div class="container">
+
+    <app-title title="Orders" fontSize="1.9rem"></app-title>
+
+    <div *ngIf="allStatus" class="all_status">
+        <a routerLink="/orders" [ngClass]="!filter ? 'selected' : '' ">All</a>
+        <a *ngFor="let status of allStatus" [ngClass]="status == filter ? 'selected': '' "
+            routerLink="/orders/{{status}}">
+            {{status}}
+        </a>
+    </div>
+
+    <app-not-found [visible]="!orders || !orders.length" [resetLinkText]="filter ? 'Show All' : 'Go To Home Page' "
+        [resetLinkRoute]="filter ? '/orders' : '/' "></app-not-found>
+
+    <div *ngFor="let order of orders" id="{{order.id}}" class="order_summary">
+        <div class="header">
+            <span>{{order.id}}</span>
+            <span>{{order.createdAt | date }}</span>
+            <span>{{order.status}}</span>
+        </div>
+
+        <div class="items">
+            <div *ngFor="let item of order.items">
+                <a routerLink="/food/{{item.food.id}}">
+                    <img src="{{item.food.imageUrl}}" alt="{{item.food.name}}" />
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <a routerLink="/track/{{order.id}}">Show Order</a>
+            </div>
+            <div>
+                <span class="price">{{order.totalPrice| currency}}</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

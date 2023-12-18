@@ -33,6 +33,7 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { ChangePasswordComponent } from './components/partials/change-password/change-password.component';
+import { OrdersPageComponent } from './components/pages/orders-page/orders-page.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ChangePasswordComponent } from './components/partials/change-password/c
     PaypalButtonComponent,
     OrderTrackPageComponent,
     ProfilePageComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    OrdersPageComponent
   ],
   imports: [
     BrowserModule,

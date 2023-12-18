@@ -1,9 +1,6 @@
 <app-search></app-search>
 <app-tags></app-tags>
-<app-not-found
-[visible]="!foods || !foods.length"
-resetLinkText="Reset Search"
-></app-not-found>
+<app-not-found [visible]="!foods || !foods.length" resetLinkText="Reset Search"></app-not-found>
 
 <ul>
     <li *ngFor="let food of foods">
@@ -25,7 +22,7 @@ resetLinkText="Reset Search"
                             {{origin}}
                         </span>
                     </div>
-                    <div class="cook-time"> 
+                    <div class="cook-time">
                         <span>🕒</span>
                         {{food.cookTime}}
                     </div>
