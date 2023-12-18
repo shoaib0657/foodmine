@@ -34,6 +34,12 @@ Users can pay for their order using PayPal, which is integrated with the applica
 
 - The application is designed to be responsive, ensuring a seamless experience across various devices.
 
+## _New Features_
+### 7. Profile Page
+
+- **Profile Customization:** Users can now personalize their profile by changing their name and address. Additionally, an improved password update feature has been implemented for enhanced security and user control.
+
+
 ## Installation
 
 To run the application locally, follow these steps:
