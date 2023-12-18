@@ -88,6 +88,7 @@ export class UserService {
     )
   }
 
+  //may require changes
   changePassword(currentPassword: string, newPassword: string) {
     
     // Construct the request body

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="menu">
+        <ng-container *ngFor="let item of allItems">
+            <ng-container *ngIf="isAdmin || !item.forAdmin">
+                <a routerLink="{{item.url}}" [ngStyle]="{'background-color': item.bgColor, 'color': item.color}">
+                    <img src="{{item.imageUrl}}" alt="{{item.title}}">
+                    <h2>{{ item.title }}</h2>
+                </a>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
