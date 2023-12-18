@@ -12,7 +12,6 @@ import { PasswordsMatchValidator } from 'src/app/shared/validators/password_matc
 })
 export class RegisterPageComponent implements OnInit {
 
-  // registerForm!: FormGroup;
   isSubmitted: boolean = false;
   returnUrl = '';
 

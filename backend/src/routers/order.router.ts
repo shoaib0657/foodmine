@@ -5,7 +5,6 @@ import { OrderModel } from "../models/order.model";
 import { OrderStatus } from "../constants/order_status";
 import auth from "../middlewares/auth.mid"
 
-
 const router = Router();
 router.use(auth);
 
