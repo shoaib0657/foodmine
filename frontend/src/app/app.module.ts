@@ -34,6 +34,7 @@ import { OrderTrackPageComponent } from './components/pages/order-track-page/ord
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { ChangePasswordComponent } from './components/partials/change-password/change-password.component';
 import { OrdersPageComponent } from './components/pages/orders-page/orders-page.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { OrdersPageComponent } from './components/pages/orders-page/orders-page.
     OrderTrackPageComponent,
     ProfilePageComponent,
     ChangePasswordComponent,
-    OrdersPageComponent
+    OrdersPageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

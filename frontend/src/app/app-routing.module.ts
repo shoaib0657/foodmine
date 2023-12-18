@@ -11,6 +11,7 @@ import { PaymentPageComponent } from './components/pages/payment-page/payment-pa
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { OrdersPageComponent } from './components/pages/orders-page/orders-page.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent, canActivate: [authGuard] },
   // { path: 'orders', redirectTo: 'orders/' },
   { path: 'orders', component: OrdersPageComponent, canActivate: [authGuard] },
-  { path: 'orders/:filter', component: OrdersPageComponent, canActivate: [authGuard] }
+  { path: 'orders/:filter', component: OrdersPageComponent, canActivate: [authGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] }
 ];
 
 @NgModule({
