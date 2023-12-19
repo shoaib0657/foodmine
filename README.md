@@ -61,3 +61,23 @@ To run the application locally, follow these steps:
 
 4. **Connect to MongoDB:**
    - Create a MongoDB Atlas account and update the connection details in the `.env` file.
+
+<details>
+<summary><strong>Things To Learn</strong></summary>
+
+- **Observables and RxJS:**
+   - Use of Observables and the RxJS library for handling asynchronous operations and events.
+
+- **BehaviorSubject:**
+   - Use BehaviorSubject to create observable data streams that retain the latest value.
+
+- **Interceptors:**
+   - HTTP interceptors to intercept and modify HTTP requests and responses globally.
+
+- **JWT (JSON Web Tokens):**
+   - Understand the concept of JWT and how it is used for secure user authentication in web applications.
+
+- **AuthGuard:**
+   - Implement an Angular route guard to control access to certain routes based on user authentication status.
+
+</details>
