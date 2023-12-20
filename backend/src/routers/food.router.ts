@@ -2,6 +2,7 @@ import { Router } from "express";
 import { sample_foods, sample_tags } from "../data";
 import asyncHandler from "express-async-handler";
 import { FoodModel } from "../models/food.model";
+import admin from "../middlewares/admin.mid";
 
 const router = Router();
 
@@ -71,6 +72,16 @@ router.get(
     asyncHandler(async (req, res) => {
         const food = await FoodModel.findById(req.params.foodId);
         res.send(food);
+    })
+);
+
+router.delete(
+    "/:foodId",
+    admin,
+    asyncHandler(async (req, res) => {
+        const { foodId } = req.params;
+        await FoodModel.deleteOne({ _id: foodId });
+        res.send();
     })
 );
 
