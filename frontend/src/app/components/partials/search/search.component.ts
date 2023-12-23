@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+
+  @Input()
+  searchRoute = '/search/';
+
+  @Input()
+  defaultRoute = '/';
 
   searchTerm = '';
 
@@ -22,7 +28,13 @@ export class SearchComponent {
   search(term: string): void {
     if(term)
     {
-      this.router.navigateByUrl('/search/' + term);
+      // this.router.navigateByUrl('/search/' + term);
+      this.router.navigateByUrl(this.searchRoute + term);
+    }
+    else
+    {
+      // this.router.navigateByUrl('/');
+      this.router.navigateByUrl(this.defaultRoute);
     }
   }
 

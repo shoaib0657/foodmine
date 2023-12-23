@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="list">
+
+        <app-title title="Manage Foods" margin="1rem auto"></app-title>
+
+        <app-search searchRoute="/admin/foods/" defaultRoute="/admin/foods"></app-search>
+
+        <a routerLink="/admin/addFood" class="add_food">
+            Add Food +
+        </a>
+
+        <app-not-found *ngIf="searchTerm" [visible]="!foods || !foods.length" resetLinkText="Show All" resetLinkRoute="/admin/foods"></app-not-found>
+        <app-not-found *ngIf="!searchTerm" [visible]="!foods || !foods.length" resetLinkText="Back to dashboard!" resetLinkRoute="/dashboard"></app-not-found>
+
+        <div *ngFor="let food of foods" class="list_item" id="{{food.id}}">
+            <img [src]="food.imageUrl" alt="{{food.name}}">
+            <a routerLink="/food/ + {{food.id}}">{{food.name}}</a>
+            <div class="price">
+                <span>
+                    {{food.price | currency}}
+                </span>
+            </div>
+            <div class="actions">
+                <a routerLink="/admin/editFood/ + {{food.id}}">Edit</a>
+                <a (click)="deleteFood(food)">Delete</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
