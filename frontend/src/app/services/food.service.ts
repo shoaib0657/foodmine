@@ -16,7 +16,7 @@ export class FoodService {
     return this.http.get<Food[]>(FOODS_URL);
   }
 
-  getAllFoodsBySearchTerm(searchTerm: string) {
+  getAllFoodsBySearchTerm(searchTerm: string): Observable<Food[]> {
     return this.http.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
   }
 
@@ -32,5 +32,9 @@ export class FoodService {
 
   getFoodById(foodId: string): Observable<Food> {
     return this.http.get<Food>(FOODS_BY_ID_URL + foodId)
+  }
+
+  deleteById(foodId: string) {
+    return this.http.delete(FOODS_BY_ID_URL + foodId);
   }
 }
