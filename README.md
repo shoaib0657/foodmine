@@ -37,8 +37,13 @@ Users can pay for their order using PayPal, which is integrated with the applica
 ## _New Features_
 ### 7. Profile Page
 
-- **Profile Customization:** Users can now personalize their profile by changing their name and address. Additionally, an improved password update feature has been implemented for enhanced security and user control.
+- **Profile Customization:** Users can now personalize their profile by changing their name and address. Additionally, password update feature has been implemented for enhanced security and user control.
 
+### 8. Dashboard
+- **Order History:** Users can track and review details of their past orders, including order status, items purchased, and total cost. This feature enhances user engagement by offering a convenient way to keep track of their food orders over time.
+
+### 9. Add/Edit/Delete Food features for Admin
+- Admins add new items, edit details, and remove items as needed, ensuring an up-to-date and curated food selection.
 
 ## Installation
 
