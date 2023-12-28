@@ -36,6 +36,7 @@ import { ChangePasswordComponent } from './components/partials/change-password/c
 import { OrdersPageComponent } from './components/pages/orders-page/orders-page.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { FoodsAdminPageComponent } from './components/pages/foods-admin-page/foods-admin-page.component';
+import { FoodEditPageComponent } from './components/pages/food-edit-page/food-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { FoodsAdminPageComponent } from './components/pages/foods-admin-page/foo
     ChangePasswordComponent,
     OrdersPageComponent,
     DashboardComponent,
-    FoodsAdminPageComponent
+    FoodsAdminPageComponent,
+    FoodEditPageComponent
   ],
   imports: [
     BrowserModule,

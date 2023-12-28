@@ -18,17 +18,12 @@ router.get(
             return;
         }
 
-        const hashedUsers = await Promise.all(
-            sample_users.map(async (user) => {
-                const hashedPassword = await bcrypt.hash(user.password, 10);
-                return {
-                    ...user,
-                    password: hashedPassword,
-                };
-            })
-        );
+        for(let user of sample_users)
+        {
+            user.password = await bcrypt.hash(user.password, 10);
+            await UserModel.create(user);
+        }
 
-        await UserModel.create(hashedUsers);
         res.send("Sample users seeded successfully");
 
         // await UserModel.create(sample_users);

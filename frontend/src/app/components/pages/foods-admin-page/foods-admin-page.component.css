@@ -5,6 +5,10 @@
     margin-bottom: 10rem;
 }
 
+app-title {
+    text-align: center;    
+}
+
 .list {
     margin: 1rem;
     max-width: 70rem;

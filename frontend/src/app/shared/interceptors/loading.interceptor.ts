@@ -14,13 +14,18 @@ var pendingRequests = 0;
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor(private loadingService: LoadingService) {}
+  constructor(private loadingService: LoadingService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    
+
+    // if (!(request.body instanceof FormData)) {
+    //   this.loadingService.showLoading();
+    //   pendingRequests++;
+    // }
+
     this.loadingService.showLoading();
     pendingRequests++;
-    
+
     return next.handle(request).pipe(
       tap({
         next: (event) => {

@@ -7,6 +7,7 @@ import cors from "cors"
 import foodRouter from "./routers/food.router";
 import userRouter from "./routers/user.router";
 import orderRouter from './routers/order.router';
+import uploadRouter from './routers/upload.router'
 import { dbConnect } from './configs/database.config';
 
 dbConnect();
@@ -21,10 +22,9 @@ app.use(cors({
 //Implement everything on food.service
 
 app.use("/api/foods", foodRouter);
-
 app.use("/api/users", userRouter);
-
 app.use("/api/orders", orderRouter);
+app.use("/api/upload", uploadRouter);
 
 app.use(express.static('public'));
 app.get('*', (req, res) => {
