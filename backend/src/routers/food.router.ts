@@ -28,11 +28,57 @@ router.get(
     })
 );
 
-router.get("/search/:searchTerm", async (req, res) => {
-    const searchRegex = new RegExp(req.params.searchTerm, "i");
-    const foods = await FoodModel.find({ name: { $regex: searchRegex } });
-    res.send(foods);
-});
+router.post("/", admin, asyncHandler(
+    async (req, res) => {
+        const { name, price, tags, favorite, imageUrl, origins, cookTime } = req.body;
+
+        const food = new FoodModel({
+            name,
+            price,
+            tags: tags.split ? tags.split(',') : tags,
+            favorite,
+            imageUrl,
+            origins: origins.split ? origins.split(',') : origins,
+            cookTime,
+        });
+
+        await food.save();
+
+        res.send(food);
+    }
+));
+
+router.put("/", admin, asyncHandler(
+    async (req, res) => {
+        
+        const { id, name, price, tags, favorite, imageUrl, origins, cookTime } = req.body;
+
+        await FoodModel.updateOne(
+            { _id: id },
+            {
+                name,
+                price,
+                tags: tags.split ? tags.split(',') : tags,
+                favorite,
+                imageUrl,
+                origins: origins.split ? origins.split(',') : origins,
+                cookTime
+            }
+        )
+
+        res.send();
+    }
+))
+
+router.delete(
+    "/:foodId",
+    admin,
+    asyncHandler(async (req, res) => {
+        const { foodId } = req.params;
+        await FoodModel.deleteOne({ _id: foodId });
+        res.send();
+    })
+);
 
 router.get(
     "/tags",
@@ -52,12 +98,13 @@ router.get(
     })
 );
 
-//not working
-// app.get("/api/foods/tag/:tagName", (req, res) => {
-//     const tagName = req.params.tagName.toLowerCase();
-//     const foods = sample_foods.filter(food => food.tags?.includes(tagName));
-//     res.send(foods);
-// })
+router.get("/search/:searchTerm", async (req, res) => {
+    const searchRegex = new RegExp(req.params.searchTerm, "i");
+    const foods = await FoodModel.find({ name: { $regex: searchRegex } });
+    res.send(foods);
+});
+
+
 
 router.get(
     "/tag/:tagName",
@@ -72,16 +119,6 @@ router.get(
     asyncHandler(async (req, res) => {
         const food = await FoodModel.findById(req.params.foodId);
         res.send(food);
-    })
-);
-
-router.delete(
-    "/:foodId",
-    admin,
-    asyncHandler(async (req, res) => {
-        const { foodId } = req.params;
-        await FoodModel.deleteOne({ _id: foodId });
-        res.send();
     })
 );
 

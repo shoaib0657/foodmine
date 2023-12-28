@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="content">
+        <app-title [title]="isEditMode ? 'Edit Food' : 'Add Food' "></app-title>
+
+        <form [formGroup]="foodForm" (ngSubmit)="submit(foodForm.value)">
+            <input-container label="Select Image">
+                <input title="Upload" type="file" (change)="upload($event)" accept="image/*">
+            </input-container>
+
+            <a *ngIf="imageUrl" [href]="imageUrl" class="image_link" target="_blank">
+                <img [src]="imageUrl" alt="Uploaded">
+            </a>
+
+            <text-input label="Name" [control]="foodForm.controls.name" [showErrorsWhen]="isSubmitted"></text-input>
+            <text-input label="Price" type="number" [control]="foodForm.controls.price" [showErrorsWhen]="isSubmitted"></text-input>
+            <text-input label="Tags" [control]="foodForm.controls.tags" [showErrorsWhen]="isSubmitted"></text-input>
+            <text-input label="Origins" [control]="foodForm.controls.origins" [showErrorsWhen]="isSubmitted"></text-input>
+            <text-input label="Cook time" [control]="foodForm.controls.cookTime" [showErrorsWhen]="isSubmitted"></text-input>
+
+            <default-button [text]="isEditMode ? 'Updade' : 'Create' " ></default-button>
+
+        </form>
+
+    </div>
+</div>

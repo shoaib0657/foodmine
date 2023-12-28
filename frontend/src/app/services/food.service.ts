@@ -37,4 +37,12 @@ export class FoodService {
   deleteById(foodId: string) {
     return this.http.delete(FOODS_BY_ID_URL + foodId);
   }
+
+  update(food: Food) {
+    return this.http.put(FOODS_URL , food);
+  }
+
+  add(food: Food): Observable<Food> {
+    return this.http.post<Food>(FOODS_URL, food);
+  }
 }
