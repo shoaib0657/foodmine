@@ -15,6 +15,8 @@ export const USER_UPDATE_PROFILE_URL = BASE_URL + '/api/users/updateProfile';
 export const USER_CHANGE_PASSWORD_URL = BASE_URL + '/api/users/changePassword';
 export const GET_ALL_USERS = BASE_URL + '/api/users/getAll/';
 export const USER_BLOCK_URL = BASE_URL + '/api/users/toggleBlock/';
+export const USER_BY_ID_URL = BASE_URL + '/api/users/getById/';
+export const UPDATE_USER_URL = BASE_URL + '/api/users/update/';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';

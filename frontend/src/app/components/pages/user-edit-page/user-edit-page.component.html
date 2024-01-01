@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="content">
+
+        <app-title [title]="isEditMode ? 'Edit User' : 'Add User' "></app-title>
+
+        <form [formGroup]="userForm" (ngSubmit)="submit()">
+            <text-input label="Name" [control]="this.userForm.controls.name"
+                [showErrorsWhen]="isSubmitted"></text-input>
+
+            <text-input label="Email" [control]="this.userForm.controls.email" [showErrorsWhen]="isSubmitted"
+                type="email"></text-input>
+
+            <text-input label="Address" [control]="this.userForm.controls.address"
+                [showErrorsWhen]="isSubmitted"></text-input>
+
+            <input-container label="Is Admin">
+                <input title="Is Admin" type="checkbox" formControlName="isAdmin">
+            </input-container>
+
+            <default-button></default-button>
+        </form>
+
+    </div>
+</div>
