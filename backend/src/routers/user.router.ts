@@ -6,31 +6,33 @@ import { User, UserModel } from "../models/user.model";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import bcrypt from "bcryptjs";
 import auth from "../middlewares/auth.mid";
+import adminMid from "../middlewares/admin.mid";
 
 const router = Router();
 
+// Endpoint to seed sample users into the database
 router.get(
     "/seed",
     asyncHandler(async (req, res) => {
+        // Check if users are already seeded
         const usersCount = await UserModel.countDocuments();
         if (usersCount > 0) {
             res.send("Sample users already seeded");
             return;
         }
 
-        for(let user of sample_users)
-        {
+        // Hash passwords and create users in the database
+        for (let user of sample_users) {
             user.password = await bcrypt.hash(user.password, 10);
             await UserModel.create(user);
         }
 
+        // Send success message
         res.send("Sample users seeded successfully");
-
-        // await UserModel.create(sample_users);
-        // res.send("Sample users seeded successfully");
     })
 );
 
+// Endpoint for user login
 router.post(
     "/login",
     asyncHandler(async (req, res) => {
@@ -46,6 +48,7 @@ router.post(
     })
 );
 
+// Endpoint for user registration
 router.post(
     "/register",
     asyncHandler(async (req, res) => {
@@ -54,6 +57,7 @@ router.post(
         if (user) {
             res.status(HTTP_BAD_REQUEST).send("User already exists!, please login!");
         } else {
+            // Encrypt password and create a new user in the database
             const encryptedPassword = await bcrypt.hash(password, 10);
 
             const newUser: User = {
@@ -63,13 +67,16 @@ router.post(
                 password: encryptedPassword,
                 address: address,
                 isAdmin: false,
+                isBlocked: false,
             };
             const dbUser = await UserModel.create(newUser);
+            // Send token response for the newly registered user
             res.send(generateTokenResponse(dbUser));
         }
     })
 );
 
+// Endpoint to update user profile
 router.put(
     "/updateProfile",
     auth,
@@ -82,6 +89,7 @@ router.put(
         );
 
         if (user) {
+            // Send token response if profile update is successful
             res.send(generateTokenResponse(user));
         } else {
             res.status(HTTP_BAD_REQUEST).send("User not found!");
@@ -91,6 +99,7 @@ router.put(
     })
 );
 
+// Endpoint to change user password
 router.put(
     "/changePassword",
     auth,
@@ -103,10 +112,12 @@ router.put(
             return;
         }
 
+        // Check if current password is correct
         const equal = await bcrypt.compare(currentPassword, user.password);
         if (!equal) {
             res.status(HTTP_BAD_REQUEST).send("Curent Password Is Not Correct!");
         } else {
+            // Update password and save the user
             user.password = await bcrypt.hash(newPassword, 10);
             await user.save();
 
@@ -115,6 +126,48 @@ router.put(
     })
 );
 
+// Endpoint to get all users (with optional search term)
+router.get(
+    "/getAll/:searchTerm?",
+    adminMid,
+    asyncHandler(async (req, res) => {
+        const { searchTerm } = req.params;
+
+        // Define filter based on search term
+        const filter = searchTerm
+            ? { name: { $regex: new RegExp(searchTerm, "i") } }
+            : {};
+
+        // Retrieve users from the database, excluding passwords
+        const users = await UserModel.find(filter, { password: 0 });
+        res.send(users);
+    })
+);
+
+// Endpoint to toggle user block status (admin only)
+router.put(
+    "/toggleBlock/:userId",
+    adminMid,
+    asyncHandler(async (req: any, res) => {
+        const { userId } = req.params;
+
+        if (userId === req.user.id) {
+            // Send error response if attempting to block oneself
+            res.status(HTTP_BAD_REQUEST).send("You cannot block yourself!");
+            return;
+        }
+
+        // Find user by ID and toggle block status
+        const user = await UserModel.findById(userId);
+        user!.isBlocked = !user!.isBlocked;
+        user!.save();
+
+        // Send updated block status as the response
+        res.send(user!.isBlocked);
+    })
+);
+
+// Function to generate a token response for a user
 const generateTokenResponse = (user: User) => {
     const token = jwt.sign(
         {

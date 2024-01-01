@@ -15,6 +15,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { FoodsAdminPageComponent } from './components/pages/foods-admin-page/foods-admin-page.component';
 import { adminGuard } from './auth/guards/admin.guard';
 import { FoodEditPageComponent } from './components/pages/food-edit-page/food-edit-page.component';
+import { UsersPageComponent } from './components/pages/users-page/users-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,9 @@ const routes: Routes = [
   { path: 'admin/foods', component: FoodsAdminPageComponent, canActivate: [authGuard, adminGuard] },
   { path: 'admin/foods/:searchTerm', component: FoodsAdminPageComponent, canActivate: [authGuard, adminGuard] },
   { path: 'admin/addFood', component: FoodEditPageComponent, canActivate: [authGuard, adminGuard] },
-  { path: 'admin/editFood/:id', component: FoodEditPageComponent, canActivate: [authGuard, adminGuard] }
+  { path: 'admin/editFood/:id', component: FoodEditPageComponent, canActivate: [authGuard, adminGuard] },
+  { path: 'admin/users', component: UsersPageComponent, canActivate: [authGuard, adminGuard] },
+  { path: 'admin/users/:searchTerm', component: UsersPageComponent, canActivate: [authGuard, adminGuard] }
 ];
 
 @NgModule({

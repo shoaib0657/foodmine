@@ -7,6 +7,7 @@ export interface User {
     name: string;    
     address: string;
     isAdmin: boolean;
+    isBlocked: boolean
 }
 
 export const UserSchema = new Schema<User>({
@@ -14,7 +15,8 @@ export const UserSchema = new Schema<User>({
     password: { type: String, required: true },
     name: {type: String, required: true},
     address: {type: String, required: true},
-    isAdmin: {type: Boolean, required: true}
+    isAdmin: {type: Boolean, default: false},
+    isBlocked: {type: Boolean, default: false}
 },{
     toJSON: {
         virtuals: true
