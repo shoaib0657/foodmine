@@ -43,7 +43,11 @@ Users can pay for their order using PayPal, which is integrated with the applica
 - **Order History:** Users can track and review details of their past orders, including order status, items purchased, and total cost. This feature enhances user engagement by offering a convenient way to keep track of their food orders over time.
 
 ### 9. Add/Edit/Delete Food features for Admin
-- Admins add new items, edit details, and remove items as needed, ensuring an up-to-date and curated food selection.
+- **Food Management** Admins can add new food items, edit existing details, and remove items as needed. This ensures an up-to-date and curated food selection, allowing administrators to maintain a dynamic and appealing menu for users.
+
+### 10. Manage Users for Admin
+
+- **User Management:** Admins now have the ability to manage users. This includes viewing a list of users, editing user details, and blocking/unblocking user accounts. This feature ensures administrators have the necessary tools to maintain an organized user base and handle user-related tasks efficiently.
 
 ## Installation
 
