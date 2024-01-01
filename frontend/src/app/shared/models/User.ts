@@ -5,4 +5,5 @@ export class User {
     address!: string;
     token!: string;
     isAdmin!: boolean;
+    isBlocked!: boolean;
 }
