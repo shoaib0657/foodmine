@@ -167,6 +167,44 @@ router.put(
     })
 );
 
+// Endpoint to get a user by ID (admin access required)
+router.get(
+    "/getById/:userId",
+    adminMid, // Middleware to ensure admin access
+    asyncHandler(async (req, res) => {
+        // Extract user ID from request parameters
+        const { userId } = req.params;
+        // Find user by ID, excluding the password field
+        const user = await UserModel.findById(userId, { password: 0 });
+        // Check if user is found and send the user data, otherwise send an error response
+        if (user) {
+            res.send(user);
+        } else {
+            res.status(HTTP_BAD_REQUEST).send("User not found!");
+        }
+    })
+);
+
+// Endpoint to update user details (admin access required)
+router.put(
+    "/update/:userId",
+    adminMid, // Middleware to ensure admin access
+    asyncHandler(async (req, res) => {
+        const id = req.params.userId;
+        // Extract user details from the request body
+        const { name, email, address, isAdmin } = req.body;
+        // Update user details in the database based on the provided ID
+        await UserModel.findByIdAndUpdate(id, {
+            name,
+            email,
+            address,
+            isAdmin,
+        });
+
+        res.send();
+    })
+);
+
 // Function to generate a token response for a user
 const generateTokenResponse = (user: User) => {
     const token = jwt.sign(

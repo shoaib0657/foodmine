@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { GET_ALL_USERS, USER_BLOCK_URL, USER_CHANGE_PASSWORD_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_UPDATE_PROFILE_URL } from '../shared/constants/urls';
+import { GET_ALL_USERS, UPDATE_USER_URL, USER_BLOCK_URL, USER_BY_ID_URL, USER_CHANGE_PASSWORD_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_UPDATE_PROFILE_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { IUserUpdateProfile } from '../shared/interfaces/IUserUpdateProfile';
@@ -136,6 +136,14 @@ export class UserService {
   // Method to toggle user block status
   toggleBlock(userId: string): Observable<boolean> {
     return this.http.put<boolean>(USER_BLOCK_URL + userId, {});
+  }
+
+  getById(userId: string): Observable<User> {
+    return this.http.get<User>(USER_BY_ID_URL + userId);
+  }
+
+  updateUser(userid: string, userData: any) {
+    return this.http.put(UPDATE_USER_URL + userid, userData);
   }
 
   // Method to set user data to local storage

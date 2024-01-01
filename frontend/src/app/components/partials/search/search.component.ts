@@ -14,6 +14,9 @@ export class SearchComponent {
   @Input()
   defaultRoute = '/';
 
+  @Input()
+  placeholder = 'Search Food Mine!';
+
   searchTerm = '';
 
   constructor(activatedRoute: ActivatedRoute, private router:Router) {

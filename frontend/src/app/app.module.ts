@@ -38,6 +38,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { FoodsAdminPageComponent } from './components/pages/foods-admin-page/foods-admin-page.component';
 import { FoodEditPageComponent } from './components/pages/food-edit-page/food-edit-page.component';
 import { UsersPageComponent } from './components/pages/users-page/users-page.component';
+import { UserEditPageComponent } from './components/pages/user-edit-page/user-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     DashboardComponent,
     FoodsAdminPageComponent,
     FoodEditPageComponent,
-    UsersPageComponent
+    UsersPageComponent,
+    UserEditPageComponent
   ],
   imports: [
     BrowserModule,
