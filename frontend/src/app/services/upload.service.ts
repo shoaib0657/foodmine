@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { EMPTY, Observable, catchError, of, tap } from 'rxjs';
+import { UPLOAD_URL } from '../shared/constants/urls';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,7 @@ export class UploadService {
     const formData = new FormData();
     formData.append('image', image, image.name);
 
-    return this.http.post('http://localhost:5000/api/upload', formData);
+    return this.http.post(UPLOAD_URL, formData);
 
   }
 
