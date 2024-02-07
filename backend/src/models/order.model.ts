@@ -51,7 +51,7 @@ export const OrderSchema = new Schema<Order>(
         totalPrice: {type: Number, required: true},
         items: {type: [OrderItemSchema], required: true},
         status: {type: String, default: OrderStatus.NEW },
-        user: {type: Schema.Types.ObjectId, required: true},
+        user: {type: Schema.Types.ObjectId, required: true, ref: 'user' },
     },
     {
         toJSON: {

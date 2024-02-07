@@ -5,6 +5,7 @@ import { OrderModel } from "../models/order.model";
 import { OrderStatus } from "../constants/order_status";
 import auth from "../middlewares/auth.mid"
 import { UserModel } from "../models/user.model";
+import { sendEmailReceipt } from "../helpers/mail.helper";
 
 const router = Router();
 router.use(auth);
@@ -44,7 +45,7 @@ router.get('/newOrderForCurrentUser', asyncHandler(
 ));
 
 router.post('/pay', asyncHandler(
-    async (req: any, res: any) => {
+    async (req, res) => {
         const { paymentId } = req.body;
         const order = await getNewOrderForCurrentUser(req);
         if(!order)
@@ -57,6 +58,9 @@ router.post('/pay', asyncHandler(
         order.status = OrderStatus.PAID;
 
         await order.save();
+
+        sendEmailReceipt(order);
+
         res.send(order._id);
     }
 ));
@@ -90,11 +94,11 @@ router.get("/:status?", asyncHandler(
     }
 ))
 
-export default router;
-
 async function getNewOrderForCurrentUser(req: any) {
     return await OrderModel.findOne({
         user: req.user.id,
         status: OrderStatus.NEW
-    });
+    }).populate('user');
 }
+
+export default router;

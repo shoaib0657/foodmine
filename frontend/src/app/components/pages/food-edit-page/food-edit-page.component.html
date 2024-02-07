@@ -2,7 +2,7 @@
     <div class="content">
         <app-title [title]="isEditMode ? 'Edit Food' : 'Add Food' "></app-title>
 
-        <form [formGroup]="foodForm" (ngSubmit)="submit(foodForm.value)">
+        <form class="form" [formGroup]="foodForm" (ngSubmit)="submit(foodForm.value)">
             <input-container label="Select Image">
                 <input title="Upload" type="file" (change)="upload($event)" accept="image/*">
             </input-container>
