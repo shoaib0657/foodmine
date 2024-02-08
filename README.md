@@ -49,6 +49,8 @@ Users can pay for their order using PayPal, which is integrated with the applica
 
 - **User Management:** Admins now have the ability to manage users. This includes viewing a list of users, editing user details, and blocking/unblocking user accounts. This feature ensures administrators have the necessary tools to maintain an organized user base and handle user-related tasks efficiently.
 
+### 11. Email Receipt After Payment
+
 ## Installation
 
 To run the application locally, follow these steps:
