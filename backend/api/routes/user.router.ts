@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { sample_users } from "../data";
+import { sample_users } from "../../src/data";
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
-import { User, UserModel } from "../models/user.model";
-import { HTTP_BAD_REQUEST } from "../constants/http_status";
+import { User, UserModel } from "../../src/models/user.model";
+import { HTTP_BAD_REQUEST } from "../../src/constants/http_status";
 import bcrypt from "bcryptjs";
-import auth from "../middlewares/auth.mid";
-import adminMid from "../middlewares/admin.mid";
+import auth from "../../src/middlewares/auth.mid";
+import adminMid from "../../src/middlewares/admin.mid";
 
 const router = Router();
 

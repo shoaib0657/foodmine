@@ -1,11 +1,11 @@
 import { Router } from "express";
 import asyncHandler from "express-async-handler";
-import { HTTP_BAD_REQUEST } from "../constants/http_status";
-import { OrderModel } from "../models/order.model";
-import { OrderStatus } from "../constants/order_status";
-import auth from "../middlewares/auth.mid"
-import { UserModel } from "../models/user.model";
-import { sendEmailReceipt } from "../helpers/mail.helper";
+import { HTTP_BAD_REQUEST } from "../../src/constants/http_status";
+import { OrderModel } from "../../src/models/order.model";
+import { OrderStatus } from "../../src/constants/order_status";
+import auth from "../../src/middlewares/auth.mid"
+import { UserModel } from "../../src/models/user.model";
+import { sendEmailReceipt } from "../../src/helpers/mail.helper";
 
 const router = Router();
 router.use(auth);

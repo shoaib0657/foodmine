@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { sample_foods, sample_tags } from "../data";
+import { sample_foods, sample_tags } from "../../src/data";
 import asyncHandler from "express-async-handler";
-import { FoodModel } from "../models/food.model";
-import admin from "../middlewares/admin.mid";
+import { FoodModel } from "../../src/models/food.model";
+import admin from "../../src/middlewares/admin.mid";
 
 const router = Router();
 

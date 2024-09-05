@@ -1,9 +1,9 @@
 import { Router } from "express";
-import adminMid from "../middlewares/admin.mid";
+import adminMid from "../../src/middlewares/admin.mid";
 import multer from "multer";
 import asyncHandler from "express-async-handler";
-import { HTTP_BAD_REQUEST } from "../constants/http_status";
-import { configCloudinary } from "../configs/cloudinary.config";
+import { HTTP_BAD_REQUEST } from "../../src/constants/http_status";
+import { configCloudinary } from "../../src/configs/cloudinary.config";
 
 const router = Router();
 const upload = multer();

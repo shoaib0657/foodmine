@@ -1,14 +1,13 @@
 import dotenv from 'dotenv'
 dotenv.config();
 
-import path from 'path';
 import express from "express";
 import cors from "cors"
-import foodRouter from "../api/routes/food.router";
-import userRouter from "../api/routes/user.router";
-import orderRouter from '../api/routes/order.router';
-import uploadRouter from '../api/routes/upload.router';
-import { dbConnect } from './configs/database.config';
+import foodRouter from "./routes/food.router";
+import userRouter from "./routes/user.router";
+import orderRouter from './routes/order.router';
+import uploadRouter from './routes/upload.router';
+import { dbConnect } from '../src/configs/database.config';
 
 dbConnect();
 
@@ -26,13 +25,9 @@ app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/upload", uploadRouter);
 
-app.use(express.static('public'));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'index.html'))
-})
-
 const port = process.env.PORT || 5000;
-
 app.listen(port, () => {
     console.log(`Server started at http://localhost:` + port);
 })
+
+module.exports = app;

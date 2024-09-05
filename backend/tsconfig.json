@@ -3,12 +3,12 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "strict": true,
-    "outDir": "./built",
+    "outDir": "public",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true
   },
   "include": [
-    "src/**/*"
-  ]
+    "api/**/*",
+  ],
 }
