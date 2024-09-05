@@ -12,6 +12,9 @@ import { dbConnect } from '../src/configs/database.config';
 dbConnect();
 
 const app = express();
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.use(express.json())
 app.use(cors({
     credentials: true,
