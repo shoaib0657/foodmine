@@ -18,7 +18,7 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use(express.json())
 app.use(cors({
     credentials: true,
-    origin: 'https://foodmine-bye2gwljr-shoaib0657s-projects.vercel.app'
+    origin: ["http://localhost:4200", "https://foodmine-akj16wfw6-shoaib0657s-projects.vercel.app/"]
 }));
 
 //Implement everything on food.service
