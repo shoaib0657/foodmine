@@ -1,0 +1,14 @@
+# MongoDB connection string
+MONGODB_URL=<your-mongodb-connection-string>
+
+# JWT secret key
+JWT_SECRET=<your-jwt-secret>
+
+# Cloudinary configuration
+CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>
+
+# Mailgun configuration
+MAILGUN_API_KEY=<your-mailgun-api-key>
+MAIL_DOMAIN=<your-mail-domain>
