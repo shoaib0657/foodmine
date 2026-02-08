@@ -74,8 +74,7 @@ export class UserService {
 
   // Method to handle user logout
   logout() {
-    this.userSubject.next(new User());
-    localStorage.removeItem(USER_KEY);
+    this.clearUser();
     window.location.reload();
   }
 
@@ -160,4 +159,35 @@ export class UserService {
     return new User();
   }
 
+  public clearUser(): void {
+    this.userSubject.next(new User());
+    localStorage.removeItem(USER_KEY);
+  }
+
+  public isTokenExpired(token?: string): boolean {
+    if (!token) {
+      return true;
+    }
+
+    const payload = this.decodeTokenPayload(token);
+    if (!payload?.exp) {
+      return true;
+    }
+
+    return payload.exp * 1000 <= Date.now();
+  }
+
+  private decodeTokenPayload(token: string): { exp?: number } | null {
+    try {
+      const base64Payload = token.split('.')[1];
+      if (!base64Payload) {
+        return null;
+      }
+      const normalized = base64Payload.replace(/-/g, '+').replace(/_/g, '/');
+      const decoded = atob(normalized);
+      return JSON.parse(decoded);
+    } catch (error) {
+      return null;
+    }
+  }
 }
